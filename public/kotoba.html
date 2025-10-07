@@ -1,55 +1,67 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hiragana Flashcard</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="shortcut icon" href="https://ucarecdn.com/bed4ae08-ec68-4950-92ee-167ada16d7ea/yorushikahd.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="https://ucarecdn.com/bed4ae08-ec68-4950-92ee-167ada16d7ea/yorushikahd.jpg"
+        type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <style>
         body {
             font-family: 'Noto Sans JP', sans-serif;
         }
+
         .progress-bar {
             transition: width 0.5s ease;
         }
+
         .card-container {
             perspective: 1000px;
         }
+
         .card-inner {
             transform-style: preserve-3d;
             position: relative;
         }
+
         .decorative-circle {
             transition: all 0.6s ease;
         }
+
         #hiraganaDisplay {
             transition: color 0.3s ease;
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-100 min-h-screen flex items-center justify-center p-4">
+
+<body
+    class="bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-100 min-h-screen flex items-center justify-center p-4">
     <div class="w-full max-w-lg">
         <!-- Header -->
         <div class="text-center mb-8 header-content">
             <h1 class="text-3xl mb-5 font-bold text-blue-900 mb-2 tracking-tight">Kotoba Test</h1>
             <p class="text-blue-600 font-medium"></p>
-              <button onclick="window.location.href='/'" class="flex-1 px-4 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-semibold py-4 rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
-                       Hiragana
-                    </button>
+            <button onclick="window.location.href='/'"
+                class="flex-1 px-4 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-semibold py-4 rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
+                Hiragana
+            </button>
         </div>
 
         <!-- Main Card -->
         <div class="bg-white rounded-3xl shadow-2xl overflow-hidden mb-6 border-4 border-blue-100 main-card">
             <!-- Progress Bar -->
             <div class="bg-gradient-to-r from-blue-100 to-indigo-100 h-2">
-                <div id="progressBar" class="progress-bar bg-gradient-to-r from-blue-600 to-indigo-600 h-full" style="width: 6.67%"></div>
+                <div id="progressBar" class="progress-bar bg-gradient-to-r from-blue-600 to-indigo-600 h-full"
+                    style="width: 6.67%"></div>
             </div>
-            
+
             <!-- Card Content -->
             <div class="p-8">
                 <div class="flex justify-between items-center mb-6 card-header">
@@ -62,33 +74,41 @@
                         <div class="w-2 h-2 rounded-full bg-blue-400"></div>
                     </div>
                 </div>
-                
+
                 <!-- Hiragana Display -->
                 <div class="card-container mb-8">
-                    <div class="card-inner bg-gradient-to-r from-violet-600 to-indigo-600 rounded-2xl p-16 flex items-center justify-center min-h-[280px] border-4 border-white shadow-inner relative overflow-hidden">
-                        <div class="decorative-circle absolute top-0 left-0 w-32 h-32 bg-blue-200 rounded-full -translate-x-16 -translate-y-16 opacity-30"></div>
-                        <div class="decorative-circle absolute bottom-0 right-0 w-40 h-40 bg-indigo-200 rounded-full translate-x-20 translate-y-20 opacity-30"></div>
+                    <div
+                        class="card-inner bg-gradient-to-r from-violet-600 to-indigo-600 rounded-2xl p-16 flex items-center justify-center min-h-[280px] border-4 border-white shadow-inner relative overflow-hidden">
+                        <div
+                            class="decorative-circle absolute top-0 left-0 w-32 h-32 bg-blue-200 rounded-full -translate-x-16 -translate-y-16 opacity-30">
+                        </div>
+                        <div
+                            class="decorative-circle absolute bottom-0 right-0 w-40 h-40 bg-indigo-200 rounded-full translate-x-20 translate-y-20 opacity-30">
+                        </div>
                         <div class="font-bold text-5xl text-white relative z-10" id="hiraganaDisplay">あ</div>
                     </div>
                 </div>
-                
+
                 <!-- Navigation Buttons -->
                 <div class="flex gap-4 mb-4 nav-buttons">
-                    <button id="prevBtn" class="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
+                    <button id="prevBtn"
+                        class="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
                         <span class="text-lg">←</span> Sebelumnya
                     </button>
-                    <button id="nextBtn" class="flex-1 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-semibold py-4 rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
+                    <button id="nextBtn"
+                        class="flex-1 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-semibold py-4 rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
                         Selanjutnya <span class="text-lg">→</span>
                     </button>
                 </div>
             </div>
         </div>
-        
+
         <!-- Shuffle Button -->
-        <button id="shuffleBtn" class="w-full bg-gradient-to-r from-blue-900 to-indigo-900 hover:from-blue-950 hover:to-indigo-950 text-white font-bold py-4 rounded-2xl transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1 shuffle-btn">
+        <button id="shuffleBtn"
+            class="w-full bg-gradient-to-r from-blue-900 to-indigo-900 hover:from-blue-950 hover:to-indigo-950 text-white font-bold py-4 rounded-2xl transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1 shuffle-btn">
             <span class="text-lg">🔀</span> Acak Ulang Kartu
         </button>
-     
+
         <!-- Footer Info -->
         <div class="text-center mt-6 text-blue-700 text-sm font-medium footer-info">
             Gunakan tombol navigasi untuk berpindah kartu
@@ -97,21 +117,15 @@
 
     <script>
         const hiraganaData = [
-          'あか', // aka - merah
-  'いえ', // ie - rumah
-  'うえ', // ue - di atas
-  'えき', // eki - stasiun
-  'おか', // oka - bukit
-  'かお', // kao - wajah
-  'きく', // kiku - mendengar / krisan
-  'くに', // kuni - negara
-  'けい', // kei - (bentuk kata: sistem/jenis)
-  'こい', // koi - cinta / ikan koi
-  'なに', // nani - apa
-  'にく', // niku - daging
-  'ぬの', // nuno - kain
-  'ねこ', // neko - kucing
-  'のう'  // nou - kemampuan (能)
+            'あか', // aka - merah
+            'いえ', // ie - rumah
+            'うえ', // ue - di atas
+            'えき', // eki - stasiun
+            'おか', // oka - bukit
+            'かお', // kao - wajah
+            'きく', // kiku - mendengar / krisan
+            'けい', // kei - (bentuk kata: sistem/jenis)
+            'こい', // koi - cinta / ikan koi
         ];
 
         let cards = [];
@@ -155,40 +169,40 @@
                     duration: 0.2,
                     ease: "power2.in"
                 })
-                .to(hiraganaDisplay, {
-                    opacity: 0,
-                    scale: 0.8,
-                    duration: 0.15
-                }, "-=0.1")
-                .to(circles, {
-                    scale: 1.2,
-                    opacity: 0.1,
-                    duration: 0.15
-                }, "-=0.15")
-                .to(cardInner, {
-                    rotateY: 15,
-                    x: 30,
-                    duration: 0,
-                })
-                .call(() => {
-                    hiraganaDisplay.textContent = cards[currentIndex];
-                })
-                .to(cardInner, {
-                    rotateY: 0,
-                    x: 0,
-                    duration: 0.3,
-                    ease: "power2.out"
-                })
-                .to(hiraganaDisplay, {
-                    opacity: 1,
-                    scale: 1,
-                    duration: 0.2
-                }, "-=0.2")
-                .to(circles, {
-                    scale: 1,
-                    opacity: 0.3,
-                    duration: 0.2
-                }, "-=0.2");
+                    .to(hiraganaDisplay, {
+                        opacity: 0,
+                        scale: 0.8,
+                        duration: 0.15
+                    }, "-=0.1")
+                    .to(circles, {
+                        scale: 1.2,
+                        opacity: 0.1,
+                        duration: 0.15
+                    }, "-=0.15")
+                    .to(cardInner, {
+                        rotateY: 15,
+                        x: 30,
+                        duration: 0,
+                    })
+                    .call(() => {
+                        hiraganaDisplay.textContent = cards[currentIndex];
+                    })
+                    .to(cardInner, {
+                        rotateY: 0,
+                        x: 0,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    })
+                    .to(hiraganaDisplay, {
+                        opacity: 1,
+                        scale: 1,
+                        duration: 0.2
+                    }, "-=0.2")
+                    .to(circles, {
+                        scale: 1,
+                        opacity: 0.3,
+                        duration: 0.2
+                    }, "-=0.2");
             } else {
                 tl.to(cardInner, {
                     rotateY: 15,
@@ -196,54 +210,54 @@
                     duration: 0.2,
                     ease: "power2.in"
                 })
-                .to(hiraganaDisplay, {
-                    opacity: 0,
-                    scale: 0.8,
-                    duration: 0.15
-                }, "-=0.1")
-                .to(circles, {
-                    scale: 1.2,
-                    opacity: 0.1,
-                    duration: 0.15
-                }, "-=0.15")
-                .to(cardInner, {
-                    rotateY: -15,
-                    x: -30,
-                    duration: 0,
-                })
-                .call(() => {
-                    hiraganaDisplay.textContent = cards[currentIndex];
-                })
-                .to(cardInner, {
-                    rotateY: 0,
-                    x: 0,
-                    duration: 0.3,
-                    ease: "power2.out"
-                })
-                .to(hiraganaDisplay, {
-                    opacity: 1,
-                    scale: 1,
-                    duration: 0.2
-                }, "-=0.2")
-                .to(circles, {
-                    scale: 1,
-                    opacity: 0.3,
-                    duration: 0.2
-                }, "-=0.2");
+                    .to(hiraganaDisplay, {
+                        opacity: 0,
+                        scale: 0.8,
+                        duration: 0.15
+                    }, "-=0.1")
+                    .to(circles, {
+                        scale: 1.2,
+                        opacity: 0.1,
+                        duration: 0.15
+                    }, "-=0.15")
+                    .to(cardInner, {
+                        rotateY: -15,
+                        x: -30,
+                        duration: 0,
+                    })
+                    .call(() => {
+                        hiraganaDisplay.textContent = cards[currentIndex];
+                    })
+                    .to(cardInner, {
+                        rotateY: 0,
+                        x: 0,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    })
+                    .to(hiraganaDisplay, {
+                        opacity: 1,
+                        scale: 1,
+                        duration: 0.2
+                    }, "-=0.2")
+                    .to(circles, {
+                        scale: 1,
+                        opacity: 0.3,
+                        duration: 0.2
+                    }, "-=0.2");
             }
         }
 
         function updateDisplay(animate = true) {
             document.getElementById('currentCard').textContent = currentIndex + 1;
             document.getElementById('totalCards').textContent = cards.length;
-            
+
             const progress = ((currentIndex + 1) / cards.length) * 100;
             gsap.to('#progressBar', {
                 width: progress + '%',
                 duration: 0.5,
                 ease: "power2.out"
             });
-            
+
             document.getElementById('prevBtn').disabled = currentIndex === 0;
             document.getElementById('nextBtn').disabled = currentIndex === cards.length - 1;
 
@@ -268,10 +282,10 @@
 
         document.getElementById('shuffleBtn').addEventListener('click', () => {
             if (isAnimating) return;
-            
+
             const cardInner = document.querySelector('.card-inner');
             const tl = gsap.timeline();
-            
+
             tl.to(cardInner, {
                 rotateY: 360,
                 scale: 0.8,
@@ -281,11 +295,11 @@
                     initCards();
                 }
             })
-            .to(cardInner, {
-                scale: 1,
-                duration: 0.3,
-                ease: "back.out(1.7)"
-            });
+                .to(cardInner, {
+                    scale: 1,
+                    duration: 0.3,
+                    ease: "back.out(1.7)"
+                });
         });
 
         // Initial animations on page load
@@ -322,4 +336,5 @@
         initCards();
     </script>
 </body>
+
 </html>
